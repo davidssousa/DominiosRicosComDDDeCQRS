@@ -19,7 +19,7 @@ namespace NerdStore.Catalogo.Domain.Entities
         public void Validar()
         {
             AssertionConcern.ValidarSeVazio(Nome, "O campo Nome nao pode estar vazio");
-            AssertionConcern.ValidarSeIgual(Codigo, "O campo Codigo nao pode ser igual a 0");
+            AssertionConcern.ValidarSeIgual(Codigo, 0, "O campo Codigo nao pode ser igual a 0");
         }
 
     }
