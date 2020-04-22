@@ -1,8 +1,0 @@
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/obj/Debug/netstandard2.0/NerdStore.Core.csprojAssemblyReference.cache
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/obj/Debug/netstandard2.0/NerdStore.Core.AssemblyInfoInputs.cache
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/obj/Debug/netstandard2.0/NerdStore.Core.AssemblyInfo.cs
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/bin/Debug/netstandard2.0/NerdStore.Core.deps.json
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/bin/Debug/netstandard2.0/NerdStore.Core.dll
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/bin/Debug/netstandard2.0/NerdStore.Core.pdb
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/obj/Debug/netstandard2.0/NerdStore.Core.dll
-/home/david/dev/CursoEduardoPiresDominiosRicos/NerdStore.Core/obj/Debug/netstandard2.0/NerdStore.Core.pdb
