@@ -8,6 +8,7 @@ namespace NerdStore.Catalogo.Domain.Entities
     {
 
         public bool      Ativo { get; private set; }    
+        public Guid      CategoriaId { get; private set; }    
         public DateTime  DataCadastro { get; private set; }    
         public string    Descricao { get; private set; }    
         public string    Imagem { get; private set; }    
@@ -15,14 +16,17 @@ namespace NerdStore.Catalogo.Domain.Entities
         public int       QuantidadeEstoque { get; private set; }    
         public decimal   Valor { get; private set; }    
 
-        public Guid      CategoriaId { get; private set; }    
+        public Dimensoes Dimensoes { get; private set; }    
         public Categoria Categoria { get; private set; }    
+        
+        protected Produto() {}
 
-        public Produto(bool ativo, DateTime dataCadastro, string descricao, string imagem, string nome, decimal valor, Guid categoriaId)
+        public Produto(bool ativo, DateTime dataCadastro, string descricao, string imagem, string nome, decimal valor, Guid categoriaId, Dimensoes dimensoes)
         {
             Ativo = ativo;
             DataCadastro = dataCadastro;
             Descricao = descricao;
+            Dimensoes = dimensoes;
             Imagem = imagem;
             Nome = nome;
             Valor = valor;
@@ -33,11 +37,11 @@ namespace NerdStore.Catalogo.Domain.Entities
 
         public void Validar() 
         {
-            AssertionConcern.ValidarSeVazio(Nome, "O campo nome do produto não pode estar vazio");
-            AssertionConcern.ValidarSeVazio(Descricao, "O campo descrição do produto não pode estar vazio");
-            AssertionConcern.ValidarSeVazio(Imagem, "O campo imagem do produto não pode estar vazio");
-            AssertionConcern.ValidarSeDiferente(CategoriaId, Guid.Empty, "O campo categoria do produto não pode estar vazio");
-            AssertionConcern.ValidarSeMenorOuIgualMinimo(Valor, 0, "O campo valor do produto não pode ser menor ou igual a 0");
+            AssertionConcern.ValidarSeVazio(Nome, "O campo Nome do produto não pode estar vazio");
+            AssertionConcern.ValidarSeVazio(Descricao, "O campo Descrição do produto não pode estar vazio");
+            AssertionConcern.ValidarSeVazio(Imagem, "O campo Imagem do produto não pode estar vazio");
+            AssertionConcern.ValidarSeMenorOuIgualMinimo(Valor, 0, "O campo Valor do produto não pode ser menor ou igual a 0");
+            AssertionConcern.ValidarSeIgual(CategoriaId, Guid.Empty, "O campo Categoria do produto não pode estar vazio");
         }
 
         public void Ativar() => this.Ativo = true;
