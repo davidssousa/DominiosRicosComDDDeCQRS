@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Catalogo.Domain.Entities
@@ -8,6 +9,11 @@ namespace NerdStore.Catalogo.Domain.Entities
         public int    Codigo { get; set; }       
         public string Nome { get; set; }       
 
+        // EntityFramework Relation
+        public virtual ICollection<Produto> Produtos { get; set; }
+
+        protected Categoria() {}
+        
         public Categoria(int codigo, string nome)
         {
             Codigo = codigo;
