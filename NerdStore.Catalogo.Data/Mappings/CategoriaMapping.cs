@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NerdStore.Catalogo.Domain.Entities;
 
 namespace NerdStore.Catalogo.Data.Mappings
@@ -6,7 +8,7 @@ namespace NerdStore.Catalogo.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Categoria> builder)
         {
-            builder.HasKey(p => p.id);
+            builder.HasKey(p => p.Id);
             builder.Property(p => p.Nome).IsRequired().HasColumnType("varchar(250)");
 
             // Relacionamento => 1 : N ( Categorias : Produtos )
@@ -15,7 +17,7 @@ namespace NerdStore.Catalogo.Data.Mappings
                    .HasForeignKey(p => p.CategoriaId);
 
             builder.ToTable("Categorias");
-            
+
         }
 
     }

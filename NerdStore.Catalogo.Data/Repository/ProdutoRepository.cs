@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NerdStore.Catalogo.Domain.Entities;
 using NerdStore.Catalogo.Domain.Interfaces;
@@ -20,10 +20,11 @@ namespace NerdStore.Catalogo.Data.Repository
 
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<IEnumerable<Produto>> ObterCategorias()
+        public async Task<IEnumerable<Categoria>> ObterCategorias()
         {
             return await _context.Categorias.AsNoTracking().ToListAsync();
-        }      
+        }
+
         public void Adicionar(Categoria categoria)
         {
             _context.Categorias.Add(categoria);
@@ -38,14 +39,15 @@ namespace NerdStore.Catalogo.Data.Repository
             return await _context.Produtos.AsNoTracking().ToListAsync();
         }
 
-        public Task<IEnumerable<Produto>> ObterPorCategoria(int codigo)
+        public async Task<IEnumerable<Produto>> ObterPorCategoria(int codigo)
         {
             return await _context.Produtos.Include(p => p.Categoria).Where(p => p.Categoria.Codigo == codigo).AsNoTracking().ToListAsync();
         }
 
         public async Task<Produto> ObterPorId(Guid id)
         {
-            return await _context.Produtos.AsNoTracking().FirstOrDefault(p => p.Id == id);
+            //return await _context.Produtos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Produtos.FindAsync(id);
         }
 
         public void Adicionar(Produto produto)
@@ -55,7 +57,7 @@ namespace NerdStore.Catalogo.Data.Repository
  
         public void Atualizar(Produto produto)
         {
-            _context.Categorias.Update(produto);
+            _context.Produtos.Update(produto);
         }
 
         public void Dispose()

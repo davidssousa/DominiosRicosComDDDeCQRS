@@ -8,7 +8,7 @@ namespace NerdStore.Catalogo.Domain.Interfaces
 {
     public interface IProdutoRepository : IRepository<Produto>
     {
-        Task<IEnumerable<Produto>> ObterCategorias();        
+        Task<IEnumerable<Categoria>> ObterCategorias();        
         void Adicionar(Categoria categoria);
         void Atualizar(Categoria categoria);
 
