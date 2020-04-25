@@ -1,5 +1,4 @@
 using System.Text.RegularExpressions;
-using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Core.DomainObjects
 {

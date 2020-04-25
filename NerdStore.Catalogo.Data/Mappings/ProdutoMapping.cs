@@ -12,6 +12,7 @@ namespace NerdStore.Catalogo.Data.Mappings
             builder.Property(p => p.Nome).IsRequired().HasColumnType("varchar(250)");
             builder.Property(p => p.Descricao).IsRequired().HasColumnType("varchar(250)");
             builder.Property(p => p.Imagem).IsRequired().HasColumnType("varchar(250)");
+            builder.Property(p => p.Valor).IsRequired().HasColumnType("decimal(18, 2)");
             builder.OwnsOne(p => p.Dimensoes, cm => {
                 cm.Property(p => p.Altura).HasColumnName("Altura").HasColumnType("int");
                 cm.Property(p => p.Largura).HasColumnName("Largura").HasColumnType("int");
